@@ -5,7 +5,7 @@ import torch
 import whisper
 
 class ASR:
-    def __init__(self, model_name='large-v3'):
+    def __init__(self, model_name='large-v1'):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.model = whisper.load_model(model_name).to(self.device)
         self.is_multilingual = self.model.is_multilingual
@@ -36,10 +36,10 @@ class ASR:
         # the recognized text
         return result.text
 
-ASR_system = ASR(model_name='large-v3')
+ASR_system = ASR(model_name='large-v1')
 
 t0 = time.time()
-result = ASR_system.simple_call('data/test/2020.ogg', language='vi')
+result = ASR_system.simple_call('data/test/Chua_bao_gio.mp3', language='vi')
 t1 = time.time()
 
 print('Result: ', result)
