@@ -28,7 +28,7 @@ class ASR:
 ASR_system = ASR(model_id='openai/whisper-large-v3')
 
 t0 = time.time()
-result = ASR_system.simple_call('data/test/Chua_bao_gio.mp3')
+result = ASR_system.simple_call('data/test/Imitate_Google.mp3')
 t1 = time.time()
 
 print('Result: ', result)
